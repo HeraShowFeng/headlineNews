@@ -9,5 +9,6 @@
 #ifndef PublicHeader_h
 #define PublicHeader_h
 
+#import "MikuManager.h"
 
 #endif /* PublicHeader_h */

@@ -21,6 +21,7 @@
     HNTabBarController *tabBarVC = [[HNTabBarController alloc] init];
     self.window.rootViewController = tabBarVC;
     [self.window makeKeyAndVisible];
+    [[MikuManager shareInstance] setMikuEnabled:YES];
     return YES;
 }
 

@@ -55,7 +55,8 @@ static CGFloat itemSpace = 5;
         [imageModels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             HNHomeNewsImageModel *imageModel = (HNHomeNewsImageModel *)obj;
             UIImageView *imageView = self.imageViews[idx];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:imageModel.url]];
+            NSString *url = [[MikuManager shareInstance] getProxyURL:imageModel.url];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:url]];
         }];
     }else {
         _leftImageView.hidden = YES;

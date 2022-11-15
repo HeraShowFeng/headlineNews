@@ -92,7 +92,8 @@
         UIImageView *imageView =  wself.imageViews[idx];
         imageView.frame = frame;
         HNMicroHeadlineImageModel *model = models[idx];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.url]];
+        NSString *url = [[MikuManager shareInstance] getProxyURL:model.url];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:url]];
     }];
     _height =  CGRectGetMaxY([layout.picFrameArrays.lastObject CGRectValue]);
 }

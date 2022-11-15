@@ -28,7 +28,8 @@ static CGFloat itemSpace = 5;
     if (model.infoModel.middle_image) {
         CGFloat width = (HN_SCREEN_WIDTH - 20 - 2 * itemSpace) / 3.0;
         _contentImageView.hidden = NO;
-        [_contentImageView sd_setImageWithURL:[NSURL URLWithString:model.infoModel.middle_image.url]];
+        NSString *url = [[MikuManager shareInstance] getProxyURL:model.infoModel.middle_image.url];
+        [_contentImageView sd_setImageWithURL:[NSURL URLWithString:url]];
         _contentImageViewWidth.constant = width;
         _titleLabelSpace.constant  = 5;
         _detialLabelSpace.constant = 5;

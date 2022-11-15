@@ -233,7 +233,8 @@
 
 - (void)setLayout:(HNMicroLayout *)layout {
     _layout = layout;
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:layout.model.detialModel.user.avatar_url]];
+    NSString *url = [[MikuManager shareInstance] getProxyURL:layout.model.detialModel.user.avatar_url];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:url]];
     self.nameLabel.text = layout.model.detialModel.user.name;
     self.subTitleLabel.text = layout.model.detialModel.user.desc;
     self.readLabel.text = layout.readCountStr;

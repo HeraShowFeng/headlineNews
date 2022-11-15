@@ -47,7 +47,8 @@
     _timeLabel.text = [NSString stringWithFormat:@"%02d:%02d",second/60,second %60];
     _authorLabel.text = model.videoModel.media_name;
     __weak typeof(self)wself = self;
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.videoModel.user_info.avatar_url] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    NSString *url = [[MikuManager shareInstance] getProxyURL:model.videoModel.user_info.avatar_url];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
             // 高效切圆角 -> 尽量不去尝试去重写 drawRect
             wself.iconImageView.image = [image hn_drawRectWithRoundedCorner:wself.iconImageView.frame.size.width / 2.0 size:wself.iconImageView.frame.size];
