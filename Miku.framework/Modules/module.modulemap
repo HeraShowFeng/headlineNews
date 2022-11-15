@@ -1,0 +1,6 @@
+framework module Miku {
+  umbrella header "Miku.h"
+
+  export *
+  module * { export * }
+}
