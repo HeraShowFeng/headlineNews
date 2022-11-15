@@ -41,9 +41,9 @@
 }
 - (void)setModel:(HNVideoListModel *)model {
     _model = model;
-    [_videoPosterImageView sd_setImageWithURL:[NSURL URLWithString:model.videoModel.videoInfoModel.poster_url]];
+//    [_videoPosterImageView sd_setImageWithURL:[NSURL URLWithString:model.videoModel.videoInfoModel.poster_url]];
     _titleLabel.text = model.videoModel.title;
-    int second = model.videoModel.videoInfoModel.video_duration;
+    int second = model.videoModel.video_duration;
     _timeLabel.text = [NSString stringWithFormat:@"%02d:%02d",second/60,second %60];
     _authorLabel.text = model.videoModel.media_name;
     __weak typeof(self)wself = self;

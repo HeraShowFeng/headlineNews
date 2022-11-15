@@ -142,14 +142,18 @@ static NSString *cellID = @"cellID";
         model.playing = YES;
         self.playingModel = model;
         NSMutableDictionary *dic = @{}.mutableCopy;
-        dic[@"320P"] = model.videoModel.videoInfoModel.video_list.video_1.main_url;
-        dic[@"480p"] = model.videoModel.videoInfoModel.video_list.video_2.main_url;
-        dic[@"720p"] = model.videoModel.videoInfoModel.video_list.video_3.main_url;
-        NSURL *videoURL = [NSURL URLWithString:dic[@"480p"]];
+//        dic[@"320P"] = model.videoModel.videoInfoModel.video_list.video_1.main_url;
+//        dic[@"480p"] = model.videoModel.videoInfoModel.video_list.video_2.main_url;
+//        dic[@"720p"] = model.videoModel.videoInfoModel.video_list.video_3.main_url;
+//        NSURL *videoURL = [NSURL URLWithString:dic[@"480p"]];
+//        NSURL *videoURL = [NSURL URLWithString:[model.videoModel.display_url stringByAppendingString:model.videoModel.videoInfoModel.videoURLModel.uri]];
+        
+        NSURL *videoURL = [NSURL URLWithString:@"https://toutiao.com/group/7063087191085285925//video1609/tos-cn-i-0004/266ceb409a1c43619f97863840afd128HMAC-SHA1:2.0:1668244748960075404:bab42eac5b9e4a8eb25a91fc371ad533:kt8ezIzPFc0uHCfldK35qaXtYOw=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjgyNDQ3NDgsInZlciI6InYxIiwiYWsiOiJiYWI0MmVhYzViOWU0YThlYjI1YTkxZmMzNzFhZDUzMyIsInN1YiI6InBnY18xMDgwcCJ9.kroUQwAp4fVMpUk8L3PX0Ruhz2WjY0Td1kWN6rWPa8c"];
+
         ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
         playerModel.title            = model.videoModel.title;
         playerModel.videoURL         = videoURL;
-        playerModel.placeholderImageURLString = model.videoModel.videoInfoModel.poster_url;
+        playerModel.placeholderImageURLString = model.videoModel.videoInfoModel.videoURLModel.url;
         playerModel.scrollView       = tableView;
         playerModel.resolutionDic    = dic;
         playerModel.indexPath        = indexPath;

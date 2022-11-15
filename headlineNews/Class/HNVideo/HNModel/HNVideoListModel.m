@@ -13,18 +13,18 @@
 
 @end
 
-@implementation HNVideoURLInfoModel
-
-- (NSString *)main_url {
-    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:_main_url options:0];
-    return [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
-}
-- (NSString *)back_url_1 {
-    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:_back_url_1 options:0];
-    return [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
-}
-
-@end
+//@implementation HNVideoURLInfoModel
+//
+//- (NSString *)main_url {
+//    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:_main_url options:0];
+//    return [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+//}
+//- (NSString *)back_url_1 {
+//    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:_back_url_1 options:0];
+//    return [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+//}
+//
+//@end
 @implementation HNVideoURLLevelModel
 
 
@@ -32,6 +32,14 @@
 
 @implementation HNVideoPlayInfoModel
 
+- (HNVideoURLLevelModel *)videoInfoModel {
+    if (!_videoURLModel) {
+        NSLog(@"hera -- self.detail_video_large_image %@", self.detail_video_large_image);
+        NSDictionary *dic = self.detail_video_large_image;
+        _videoURLModel = [[[HNVideoURLLevelModel alloc]init] mj_setKeyValues:dic];
+    }
+    return _videoURLModel;
+}
 
 @end
 
@@ -39,13 +47,9 @@
 
 - (HNVideoPlayInfoModel *)videoInfoModel {
     if (!_videoInfoModel) {
-        NSData *data = [self.video_play_info dataUsingEncoding:NSUTF8StringEncoding];
-        if (!data) {
-            return nil;
-        }else {
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            _videoInfoModel = [[[HNVideoPlayInfoModel alloc]init] mj_setKeyValues:dic];
-        }
+        NSLog(@"hera -- self.video_detail_info %@", self.video_detail_info);
+        NSDictionary *dic = self.video_detail_info;
+        _videoInfoModel = [[[HNVideoPlayInfoModel alloc]init] mj_setKeyValues:dic];
     }
     return _videoInfoModel;
 }
@@ -66,6 +70,7 @@
     if (!_videoModel) {
         NSData *data = [self.content dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"hera -- content %@", dic);
         _videoModel = [[[HNVideoDetialModel alloc]init] mj_setKeyValues:dic];
     }
     return _videoModel;
