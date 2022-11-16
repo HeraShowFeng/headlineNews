@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSHTTPURLResponse *response;
 
+@property (nonatomic, strong) NSURLSessionDataTask *task;
+
 @end
 
 @interface MikuHttpClient : NSObject
@@ -53,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
                                       httpDNS:(BOOL)httpDNS
                                        hasher:(MikuHash *)hasher;
 
-- (NSURLRequest *)newRequest:(NSString *)url method:(NSString *)method body:(NSData *)body;
+- (NSURLRequest *)newRequest:(NSString *)url method:(NSString *)method body:(NSData * _Nullable)body;
 
 - (NSHTTPURLResponse *)execute:(MikuHttpClientTask *)httpTask delegate:(id<MikuHttpClientDelegate>)delegate isHttpNS:(BOOL)isHttpNS doLog:(MikuDoLog *)doLog;
 
