@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "HNTabBarController.h"
+#import "MikuManager.h"
+
 @interface AppDelegate ()
 
 @end

@@ -9,6 +9,8 @@
 #import "HNVideoCell.h"
 #import "UIImage+EX.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MikuManager.h"
+
 @interface HNVideoCell ()
 
 

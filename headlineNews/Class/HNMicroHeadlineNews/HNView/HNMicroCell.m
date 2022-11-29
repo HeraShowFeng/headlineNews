@@ -16,6 +16,7 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <YYText/YYText.h>
+#import "MikuManager.h"
 
 @interface HNMicroCell() <UIGestureRecognizerDelegate>
 @property (nonatomic , weak)UILabel *nameLabel;

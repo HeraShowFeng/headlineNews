@@ -8,6 +8,8 @@
 
 #import "HNContentNewsCell.h"
 #import "HNHeader.h"
+#import "MikuManager.h"
+
 static CGFloat itemSpace = 5;
 @interface HNContentNewsCell()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

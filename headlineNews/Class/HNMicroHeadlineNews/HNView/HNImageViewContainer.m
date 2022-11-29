@@ -14,6 +14,8 @@
 #import "HNMicroHeadlineModel.h"
 #import "UIView+Frame.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MikuManager.h"
+
 @interface HNImageView :UIImageView
 
 @end
